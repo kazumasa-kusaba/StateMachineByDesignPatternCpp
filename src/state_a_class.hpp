@@ -13,6 +13,7 @@ class StateA : public State {
 
  private:
   static StateA* singleton;
+  StateA() {};
 };
 
 #endif // STATE_A_CLASS_H
