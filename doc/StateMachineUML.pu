@@ -1,0 +1,51 @@
+@startuml
+class Context {
+  -State* state
+  +void callMethodX()
+  +void callMethodY()
+  +void callMethodZ()
+}
+Context o-- State
+note right of Context
+  Mange each state
+end note
+
+abstract class State {
+  +{abstract} void methodX()
+  +{abstract} void methodY()
+  +{abstract} void methodZ()
+}
+note right of State
+  Interface
+end note
+
+class StateA {
+  -{static} State* state
+  +{static} State* getInstance()
+  +void methodX()
+  +void methodY()
+  +void methodZ()
+}
+State <|-- StateA
+note right of StateA::state
+  Singleton style
+end note
+
+class StateB {
+  -{static} State* state
+  +{static} State* getInstance()
+  +void methodX()
+  +void methodY()
+  +void methodZ()
+}
+State <|-- StateB
+
+class StateC {
+  -{static} State* state
+  +{static} State* getInstance()
+  +void methodX()
+  +void methodY()
+  +void methodZ()
+}
+State <|-- StateC
+@enduml
